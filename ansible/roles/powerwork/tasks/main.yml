@@ -5,6 +5,7 @@
     cache_valid_time: 3600
   
 - name: Alias more to 'less -FX' for user
+  user_name: powerwork_github
   lineinfile:
     path: "/home/{{ user_name }}/.bash_aliases"
     create: yes
