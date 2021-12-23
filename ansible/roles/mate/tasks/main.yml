@@ -7,7 +7,7 @@
 - block:
   ### - name: Add apt repository for Magnus magnifier
   ###  apt_repository:
-      ###repo: ppa:flexiondotorg/magnus
+  ###  repo: ppa:flexiondotorg/magnus
               
       
   - name: Install MATE desktop
