@@ -53,22 +53,22 @@
       regexp: '^enabled='
       line: 'enabled=False'
 
-  - name: Start lightdm service
-    systemd:
-      state: started
-      name: lightdm.service
+  #- name: Start lightdm service
+  #  systemd:
+  #    state: started
+  #    name: lightdm.service
 
-  - name: Copy Slingshot background
-    copy:
-      src: backgrounds/
-      dest: /usr/share/backgrounds/
-      force: yes
+  #- name: Copy Slingshot background
+  #  copy:
+  #    src: backgrounds/
+  #    dest: /usr/share/backgrounds/
+  #    force: yes
       
-  - name: Copy Slingshot icons
-    copy:
-      src: icons/
-      dest: /usr/share/icons/
-      force: yes
+  #- name: Copy Slingshot icons
+  #  copy:
+  #    src: icons/
+  #    dest: /usr/share/icons/
+  #    force: yes
 
   - name: Add apt repository for Papirus theme
     apt_repository:
