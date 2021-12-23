@@ -33,7 +33,7 @@
         - chrome
         ## - nikto
         - nmap
-        - zap
+        ## - zap
 
       - name: Create menu entries
         copy:
