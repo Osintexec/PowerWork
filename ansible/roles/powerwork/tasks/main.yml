@@ -3,21 +3,3 @@
 - name: Update apt cache
   apt:
     cache_valid_time: 3600
-  
-- name: Alias more to 'less -FX' for user
-  user_name: powerwork_github
-  lineinfile:
-    path: "/home/{{ user_name }}/.bash_aliases"
-    create: yes
-    mode: 0644
-    owner: "{{ user_name }}"
-    group: "{{ user_name }}"
-    regexp: "^alias more="
-    line: "alias more='less -FX'"
-
-- name: Alias more to 'less -FX' for root
-  lineinfile:
-    path: /root/.bash_aliases
-    create: yes
-    regexp: "^alias more="
-    line: "alias more='less -FX'"
