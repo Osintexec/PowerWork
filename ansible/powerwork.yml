@@ -45,7 +45,7 @@
             Comment={{ item.comment }}
             Terminal=false
             Type=Application
-            Categories=Slingshot
+            Categories=PowerWork
         loop:
           - { file: 'ettercap', name: 'ettercap', generic_name: 'Sniffer', comment: 'A suite for MITM attacks', exec: 'ettercap -h' }
           - { file: 'eyewitness', name: 'EyeWitness', generic_name: 'Information Gathering', comment: 'Capture web app screenshots', exec: 'eyewitness -h' }
