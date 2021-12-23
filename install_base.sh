@@ -14,5 +14,6 @@ sudo apt install -y ansible
 ####
 ## Check ansible --version
 ####
-
+sudo apt update
+sudo apt updgrade -y
 exit 0
