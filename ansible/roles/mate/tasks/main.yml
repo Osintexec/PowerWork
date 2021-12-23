@@ -224,17 +224,6 @@
         Exec=sh -c 'pactl set-sink-mute 0 0; pactl set-sink-volume 0 65536; rm ~/.config/autostart/Enable-Audio.desktop'
         X-GNOME-Autostart-enabled=true
 
-  - name: Create feedback shortcut
-    copy:
-      dest: ~/Desktop/Feedback.desktop
-      mode: 0644
-      content: |
-        [Desktop Entry]
-        Encoding=UTF-8
-        Name=Feedback
-        Type=Link
-        URL={{ feedback_url }}
-        Icon=text-html
         
   #- name: Mark configuration complete
   #  set_fact:
