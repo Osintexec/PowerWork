@@ -24,23 +24,7 @@
       - language-selector-gnome
       - synapse
       
-  - name: Create Orca application menu entry
-    copy:
-      dest: /usr/share/applications/orca.desktop
-      mode: 0644
-      content: |
-        [Desktop Entry]
-        Name=Orca
-        GenericName=Orca
-        Comment=Visual Assistive Access Tool
-        Exec=orca -r -s
-        Terminal=false
-        Type=Application
-        Categories=Utility;Accessibility;
-        Keywords=onscreen;keyboard;accessibility;utility;
-        Icon=preferences-desktop-accessibility
-        X-Ubuntu-Gettext-Domain=orca
-      
+     
   - name: Remove unwanted MATE components
     apt:
       state: absent
@@ -58,17 +42,17 @@
   #    state: started
   #    name: lightdm.service
 
-  #- name: Copy Slingshot background
-  #  copy:
-  #    src: backgrounds/
-  #    dest: /usr/share/backgrounds/
-  #    force: yes
+  - name: Copy Slingshot background
+    copy:
+      src: backgrounds/
+      dest: /usr/share/backgrounds/
+      force: yes
       
-  #- name: Copy Slingshot icons
-  #  copy:
-  #    src: icons/
-  #    dest: /usr/share/icons/
-  #    force: yes
+  - name: Copy Slingshot icons
+    copy:
+      src: icons/
+      dest: /usr/share/icons/
+      force: yes
 
   - name: Add apt repository for Papirus theme
     apt_repository:
@@ -105,7 +89,7 @@
                 "http://www.freedesktop.org/standards/menu-spec/menu-1.0.dtd">
         <Menu>
         <Name>Applications</Name> <!-- This is necessary for your directory to appear in the applications drop down -->
-        <Menu> <!--Slingshot -->
+        <Menu> <!--Powerwork -->
         <Name>Slingshot</Name>
         <Directory>powerwork.directory</Directory>
         <Include>
@@ -252,9 +236,9 @@
         URL={{ feedback_url }}
         Icon=text-html
         
-  - name: Mark configuration complete
-    set_fact:
-      software: "{{ software | combine({ role_name+lookup('vars', role_name+'_version', default='')+'_configured': true }) }}"
-  when: not (software[role_name+lookup('vars', role_name+'_version', default='')+'_configured'] | default(false))
-  become: yes
-  become_user: "{{ user_name }}"
+  #- name: Mark configuration complete
+  #  set_fact:
+  #    software: "{{ software | combine({ role_name+lookup('vars', role_name+'_version', default='')+'_configured': true }) }}"
+  #when: not (software[role_name+lookup('vars', role_name+'_version', default='')+'_configured'] | default(false))
+  #become: yes
+  #become_user: "{{ user_name }}"
