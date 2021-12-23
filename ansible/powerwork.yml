@@ -30,6 +30,7 @@
       - include_role:
           name: "{{ item }}"
         loop:
+        - chrome
         - nikto
         - nmap
         - zap
@@ -48,11 +49,8 @@
             Categories=PowerWork
         loop:
           - { file: 'ettercap', name: 'ettercap', generic_name: 'Sniffer', comment: 'A suite for MITM attacks', exec: 'ettercap -h' }
-          - { file: 'eyewitness', name: 'EyeWitness', generic_name: 'Information Gathering', comment: 'Capture web app screenshots', exec: 'eyewitness -h' }
           - { file: 'masscan', name: 'masscan', generic_name: 'Scanner', comment: 'Internet-scale, asynchronous port scanner', exec: 'masscan -h' }
           - { file: 'nmap', name: 'Nmap', generic_name: 'Scanner', comment: 'Flexible network scanner', exec: 'nmap -h' }
-          - { file: 'unicornscan', name: 'unicornscan', generic_name: 'Scanner', comment: 'Asynchronous port scanner', exec: 'unicornscan -h' }
-          - { file: 'upx', name: 'UPX', generic_name: 'Utility', comment: 'The Ultimate Packer for eXecutables', exec: 'upx -h' }
           - { file: 'zap', name: 'ZAP', generic_name: 'Web App Tool', comment: 'OWASP Zed Attack Proxy', exec: 'zap' }
         when: create_appmenu is defined and create_appmenu
 
