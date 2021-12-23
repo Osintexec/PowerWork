@@ -1,5 +1,4 @@
 ---
-user_name: PowerWork_Github
 user_home: "/home/{{ user_name }}"
 create_symlinks: yes
 symlink_path: /opt/bin
