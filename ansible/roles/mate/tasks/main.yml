@@ -4,12 +4,7 @@
   
 - import_tasks: "tasks/check_installed.yml"
 
-- block:
-  ### - name: Add apt repository for Magnus magnifier
-  ###  apt_repository:
-  ###  repo: ppa:flexiondotorg/magnus
-              
-      
+- block:      
   - name: Install MATE desktop
     apt:
       name:
@@ -103,7 +98,7 @@
 
   - name: Add application menu categories
     copy:
-      dest: /etc/xdg/menus/applications-merged/slingshot-applications.menu
+      dest: /etc/xdg/menus/applications-merged/PowerWork-applications.menu
       mode: 0644
       content: |
         <!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"
@@ -112,16 +107,16 @@
         <Name>Applications</Name> <!-- This is necessary for your directory to appear in the applications drop down -->
         <Menu> <!--Slingshot -->
         <Name>Slingshot</Name>
-        <Directory>slingshot.directory</Directory>
+        <Directory>powerwork.directory</Directory>
         <Include>
-        <Category>Slingshot</Category>
+        <Category>PowerWork</Category>
         </Include>
-        </Menu> <!-- End Slingshot -->
+        </Menu> <!-- End PowerWork -->
         </Menu> <!-- End Applications -->
         
   - name: Add application directory
     copy:
-      dest: /usr/share/desktop-directories/slingshot.directory
+      dest: /usr/share/desktop-directories/powerwork.directory
       mode: 0644
       content: |
         [Desktop Entry]
