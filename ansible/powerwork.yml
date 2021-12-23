@@ -31,7 +31,7 @@
           name: "{{ item }}"
         loop:
         - chrome
-        - nikto
+        ## - nikto
         - nmap
         - zap
 
