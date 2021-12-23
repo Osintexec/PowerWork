@@ -13,5 +13,3 @@
   command: "apt-get install -f -y"
   args:
     warn: no
-
-- import_tasks: "tasks/mark_installed.yml"
