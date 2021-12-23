@@ -30,5 +30,3 @@
   copy:
     src: "{{ cyberchef_install_path }}/CyberChef_v{{ cyberchef_version }}.html"
     dest: "{{ cyberchef_install_path }}/index.html"
-
-- import_tasks: "tasks/mark_installed.yml"
