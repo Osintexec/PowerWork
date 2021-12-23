@@ -1,0 +1,65 @@
+---
+- hosts: all
+  become: yes
+
+  tasks:
+  ########################################################################################
+  - name: MAIN BLOCK
+    block:
+
+    ######################################################################################
+    - name: BASIC CONFIGURATION
+      block:
+      - include_role:
+          name: powerwork
+          
+      - include_role:
+          name: powerwork_default_packages
+
+    ######################################################################################
+    - name: INSTALL PACKAGES, MODULES, AND ROLES
+      block:
+      - name: Install apt packages
+        apt:
+          update_cache: yes
+          name:
+          - ettercap-graphical
+          - masscan
+      
+      - include_role:
+          name: "{{ item }}"
+        loop:
+        - nikto
+        - nmap
+        - zap
+
+      - name: Create menu entries
+        copy:
+          dest: "{{ appmenu_path }}/{{ item.file }}.desktop"
+          mode: 0644
+          content: |
+            [Desktop Entry]
+            Name={{ item.name }}
+            GenericName={{ item.generic_name }}
+            Comment={{ item.comment }}
+            Terminal=false
+            Type=Application
+            Categories=Slingshot
+        loop:
+           - { file: 'ettercap', name: 'ettercap', generic_name: 'Sniffer', comment: 'A suite for MITM attacks', exec: 'ettercap -h' }
+          - { file: 'eyewitness', name: 'EyeWitness', generic_name: 'Information Gathering', comment: 'Capture web app screenshots', exec: 'eyewitness -h' }
+          - { file: 'masscan', name: 'masscan', generic_name: 'Scanner', comment: 'Internet-scale, asynchronous port scanner', exec: 'masscan -h' }
+           - { file: 'nmap', name: 'Nmap', generic_name: 'Scanner', comment: 'Flexible network scanner', exec: 'nmap -h' }
+          - { file: 'unicornscan', name: 'unicornscan', generic_name: 'Scanner', comment: 'Asynchronous port scanner', exec: 'unicornscan -h' }
+          - { file: 'upx', name: 'UPX', generic_name: 'Utility', comment: 'The Ultimate Packer for eXecutables', exec: 'upx -h' }
+          - { file: 'zap', name: 'ZAP', generic_name: 'Web App Tool', comment: 'OWASP Zed Attack Proxy', exec: 'zap' }
+        when: create_appmenu is defined and create_appmenu
+
+
+    ######################################################################################
+    - name: INSTALL DESKTOP
+      block:
+      - include_role:
+          name: mate
+
+
