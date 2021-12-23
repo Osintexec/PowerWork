@@ -8,7 +8,6 @@
   
 - name: Set playbook-wide facts
   set_fact:
-    user_name: "{{ user_name }}"
     user_home: "/home/{{ user_name }}"
     create_symlinks: "{{ create_symlinks }}"
     symlink_path: "{{ symlink_path }}"
