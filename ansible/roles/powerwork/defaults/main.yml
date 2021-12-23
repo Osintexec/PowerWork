@@ -1,0 +1,8 @@
+---
+user_name: powerwork
+user_password: $6$rjHtQIxot5KknEHv$Mp8A6H5Sn8xURZ81FaOeLip12NQ16/p5zYKHbCfXlJqd9kbxzX871e8kgKZdDzf835b1MGdmAWnY8xBCeNJpN0
+user_home: "/home/{{ user_name }}"
+create_symlinks: yes
+symlink_path: /opt/bin
+create_appmenu: yes
+appmenu_path: /usr/share/applications
