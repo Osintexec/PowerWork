@@ -37,10 +37,10 @@
       regexp: '^enabled='
       line: 'enabled=False'
 
-  #- name: Start lightdm service
-  #  systemd:
-  #    state: started
-  #    name: lightdm.service
+  - name: Start lightdm service
+    systemd:
+      state: started
+      name: lightdm.service
 
   - name: Copy Slingshot background
     copy:
