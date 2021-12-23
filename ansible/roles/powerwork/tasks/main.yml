@@ -62,12 +62,6 @@
     shell: /bin/bash
     state: present
 
-- name: Extract lab files to /home/
-  unarchive:
-    src: "/tmp/labs.tar.gz"
-    dest: "{{ user_home }}"
-    remote_src: yes
-    keep_newer: yes
 
 - name: Alias more to 'less -FX' for user
   lineinfile:
