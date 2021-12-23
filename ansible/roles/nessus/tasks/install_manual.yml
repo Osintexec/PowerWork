@@ -7,5 +7,3 @@
 - name: Install Nessus .deb package
   apt:
     deb: /tmp/nessus.deb
-
-- import_tasks: "tasks/mark_installed.yml"
