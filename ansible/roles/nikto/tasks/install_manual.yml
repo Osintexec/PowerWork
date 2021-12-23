@@ -12,5 +12,3 @@
     dest: "{{ symlink_path }}/nikto"
     state: link
   when: create_symlinks is defined and create_symlinks
-
-- import_tasks: "tasks/mark_installed.yml"
