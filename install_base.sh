@@ -3,6 +3,7 @@
 ## Apply latest update
 sudo apt-get update
 sudo apt-get updgrade -y
+sudo apt auroremove
 ## Install dependencies 
 sudo apt install -y software-properties-common
 ## Configure PPA repository for Ansible 
@@ -16,4 +17,5 @@ sudo apt install -y ansible
 ####
 sudo apt-get update
 sudo apt-get updgrade -y
+sudo apt auroremove
 exit 0
