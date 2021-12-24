@@ -32,7 +32,7 @@
         loop:
         - chrome
         ## - nikto
-        - nmap
+        ## - nmap
         ## - zap
 
       - name: Create menu entries
