@@ -6,6 +6,6 @@
     - echo locales locales/default_environment_locale      select  en_US.UTF-8 | debconf-set-selections
     - dpkg-reconfigure locales -f noninteractive
     - touch /root/.locales-updated
-      when: ansible_distribution == 'Ubuntu'
+    ###  when: ansible_distribution == 'Ubuntu'
       args:
         creates: /root/.locales-updated
