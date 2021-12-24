@@ -7,5 +7,5 @@
     - dpkg-reconfigure locales -f noninteractive
     - touch /root/.locales-updated
     ###  when: ansible_distribution == 'Ubuntu'
-      args:
-        creates: /root/.locales-updated
+    args:
+      creates: /root/.locales-updated
