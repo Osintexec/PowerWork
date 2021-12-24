@@ -1,11 +1,11 @@
- ---
- - name: locales
-     command: "{{ item }}"
-       with_items:
-         - echo locales locales/locales_to_be_generated multiselect     it_IT E ISO-8859-1, en_US ISO-8859-1, en_US ISO-8859-15, en_US.ISO-8859-15 ISO-8859-15, en_US.UTF-8 UTF-8 | debconf-set-selections
-         - echo locales locales/default_environment_locale      select  en_US.UTF-8 | debconf-set-selections
-         - dpkg-reconfigure locales -f noninteractive
-         - touch /root/.locales-updated
-       when: ansible_distribution == 'Ubuntu'
-     args:
-      creates: /root/.locales-updated
+---
+- name: locales
+    command: "{{ item }}"
+      with_items:
+        - echo locales locales/locales_to_be_generated multiselect     it_IT E ISO-8859-1, en_US ISO-8859-1, en_US ISO-8859-15, en_US.ISO-8859-15 ISO-8859-15, en_US.UTF-8 UTF-8 | debconf-set-selections
+        - echo locales locales/default_environment_locale      select  en_US.UTF-8 | debconf-set-selections
+        - dpkg-reconfigure locales -f noninteractive
+        - touch /root/.locales-updated
+      when: ansible_distribution == 'Ubuntu'
+    args:
+     creates: /root/.locales-updated
